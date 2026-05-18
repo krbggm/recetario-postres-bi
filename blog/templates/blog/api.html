@@ -1,0 +1,48 @@
+{% load static %} 
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+    <meta charset="utf-8"> 
+    <title>Postres API Integrada</title> 
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}"> 
+</head> 
+<body> 
+    <h1>Datos Combinados (API Local + Externa) </h1> 
+    <p style="text-align:center;"><a href="/" class="back-link">Volver al Inicio</a></p>
+    
+    <div id="posts" class="posts"></div> 
+
+    <script> 
+        async function cargarDatos() { 
+            try {
+                const resPosts = await fetch('/api/posts/'); 
+                const posts = await resPosts.json();
+                
+                const resUsers = await fetch('https://jsonplaceholder.typicode.com/users'); 
+                const users = await resUsers.json(); 
+                
+    
+                let html = ''; 
+                posts.forEach((post, i) => { 
+                    const user = users[i % users.length];
+                    html += ` 
+                        <div class="post"> 
+                            <h2>${post.titulo} <small style="font-size:12px; color:#ff85a2;">(${post.categoria})</small></h2> 
+                            <p>${post.contenido}</p> 
+                            <div class="post-footer">
+                                <small> Repostera Local: <b>${post.autor}</b> | 🌐 Chef Crítico sugerido: <b>${user.name}</b></small> 
+                            </div>
+                        </div> 
+                    `;
+                });
+                document.getElementById('posts').innerHTML = html; 
+            } catch (error) {
+                console.error("Error cargando APIs:", error);
+            }
+        }
+        
+        cargarDatos();
+        setInterval(cargarDatos, 10000); 
+    </script> 
+</body> 
+</html> 

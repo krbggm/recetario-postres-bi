@@ -1,0 +1,132 @@
+body { 
+    font-family: 'Segoe UI', Arial, sans-serif; 
+    background-color: #fff0f5; 
+    color: #4a4a4a; 
+    margin: 40px auto; 
+    max-width: 800px;
+    padding: 0 20px;
+} 
+
+h1 { 
+    text-align: center; 
+    color: #d9406b; 
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+} 
+
+.nav-links {
+    text-align: center;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.nav-links a {
+    color: #ff6584;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    background-color: #ff85a2; 
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #d9406b;
+}
+
+.posts { 
+    margin-top: 20px;
+}
+
+.post { 
+    background-color: white; 
+    padding: 20px; 
+    border-radius: 15px; 
+    margin-bottom: 25px; 
+    box-shadow: 0 4px 10px rgba(217, 64, 107, 0.1); 
+    border-left: 5px solid #ff85a2;
+} 
+
+.badge {
+    background-color: #ffe3ec;
+    color: #d9406b;
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.post-footer {
+    margin-top: 15px;
+    border-top: 1px dashed #fcd1dc;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.autor {
+    font-weight: bold;
+    color: #ff6584;
+    margin: 0;
+}
+
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffcbd7;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #ff85a2;
+    box-shadow: 0 0 5px rgba(255, 133, 162, 0.5);
+}
+
+.error-box {
+    background-color: #ffe3ec;
+    color: #d9406b;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.back-link {
+    color: #888;
+    text-decoration: none;
+}
+.back-link:hover {
+    color: #d9406b;
+}

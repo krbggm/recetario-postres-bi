@@ -1,0 +1,37 @@
+{% load static %} 
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Mi Recetario de Postres</title> 
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}"> 
+</head> 
+<body> 
+    <h1> Mi Recetario Dulce </h1> 
+    
+    <div class="nav-links">
+        <a href="{% url 'crear_post' %}" class="btn"> Compartir nueva receta</a> 
+        <br/><br/>
+        <a href="{% url 'api_post_detail' 1 %}"> Ver Primer Postre (API)</a> 
+        <a href="{% url 'api_posts' %}"> JSON de Recetas (API)</a> 
+        <a href="{% url 'json_api' %}"> Combinar con API Externa</a> 
+    </div>
+
+    <div class="posts"> 
+        {% for post in posts %} 
+            <div class="post"> 
+                <h2>{{ post.titulo }}</h2> 
+                <span class="badge">{{ post.categoria }}</span> <div class="receta-content">
+                    <p>{{ post.contenido|linebreaks }}</p> 
+                </div>
+                <div class="post-footer">
+                    <small> {{ post.fecha|date:"d M Y H:i" }}</small> 
+                    <p class="autor">By:  {{ post.autor }}</p> 
+                </div>
+            </div> 
+        {% empty %} 
+            <p class="no-posts">Aún no hay postres registrados. ¡Sé la primera en agregar uno!</p>
+        {% endfor %} 
+    </div> 
+</body> 
+</html> 
